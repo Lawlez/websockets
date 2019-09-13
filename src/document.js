@@ -1,14 +1,14 @@
 //document component
 import React from 'react'
 
-const Document = () => {
-
+const Document = (props) => {
 	return (
-		<div className="documentWrapper"
-		>
-<div className="document">{/*todo inhalt*/}</div>
-</div>
-		)
+		<div className="documentWrapper">
+			<textarea value={props.docContent}
+					onChange={(e) => props.handleUserInput(e.target.value)}
+					className="document" />
+		</div>
+	)
 }
 
 export default Document
