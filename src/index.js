@@ -11,7 +11,7 @@ const Application = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [userName, setUserName] = useState('username')
 	const [userActivity, setUserActivity] = useState([])
-	const [docContent, setDocContent] = useState('')
+	const [docContent, setDocContent] = useState('Your Text comes Here')
 
 	let dataFromServer
 	let tempName //temporary uname until sever verifies
@@ -50,6 +50,7 @@ const Application = () => {
 		}
 	}
 
+	//handling username input & registering
 	const handleUserNameInput = (e) => {
 		setUserName(e)
 	}
@@ -63,6 +64,7 @@ const Application = () => {
 			})
 		)
 	}
+	//handling doc editing
 	const handleUserInput = (e) => {
 		setDocContent(e)
 		let data = e
@@ -74,7 +76,7 @@ const Application = () => {
 			})
 		)
 	}
-
+	
 	return (
 		<div>
 			<div className="userActivity">

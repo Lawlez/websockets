@@ -2,7 +2,6 @@ const WebSocketSrv = () => {
 	const webSocketServerPort = 8080
 	const webSocketServer = require('websocket').server
 	const http = require('http')
-
 	// starting the http server and the websocket server.
 	const server = http.createServer()
 	server.listen(webSocketServerPort)
