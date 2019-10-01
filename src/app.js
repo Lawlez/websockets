@@ -6,7 +6,7 @@ import './index.css'
 import Document from './document'
 import Login from './login'
 import {client} from "./index";
-const Application = () => {
+const Application = (props) => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [userName, setUserName] = useState('username')
 	const [userActivity, setUserActivity] = useState([])
@@ -84,8 +84,8 @@ const Application = () => {
 			{isLoggedIn ? (
 				<div className="wrapper">
 					<Document
-						docContent={docContent}
-						handleUserInput={(e) => handleUserInput(e)}
+						docContent={props.content.content}
+						handleUserInput={(e) => props.setContent(e)}
 					/>
 				</div>
 			) : (
