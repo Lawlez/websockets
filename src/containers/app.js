@@ -1,11 +1,10 @@
 //app
 import React , {useState} from 'react'
 import {connect} from 'react-redux'
-import ReactDOM from 'react-dom'
-import './index.css'
-import Document from './document'
-import Login from './login'
-import {client} from "./index";
+import '../index.css'
+import Document from '../components/document'
+import Login from '../components/login'
+import {client} from "../index";
 const Application = (props) => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [userName, setUserName] = useState('username')
