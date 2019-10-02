@@ -1,6 +1,7 @@
 const userReducer = (state = {
 	name: "username",
-	id: "userid"
+	id: "userid",
+	isLoggedIn: false
 }, action) => {
 	switch (action.type) {
 		case "SET_NAME":
@@ -15,6 +16,11 @@ const userReducer = (state = {
 			id: action.payload
 		}
 		break
+		case 'SET_LOGIN':
+		state = {
+			...state,
+			isLoggedIn: action.payload
+		}
 	}
 return state
 }

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "ditto-crdt-lib": "^3.0.30",
+    "eslint-plugin-react": "^7.15.1",
     "http": "^0.0.0",
     "nodemon": "^1.19.2",
     "react": "^16.9.0",
@@ -15,6 +16,8 @@
     "websocket": "^1.0.29"
   },
   "scripts": {
+    "lint": "eslint './src/**/*.js'",
+    "fix": "eslint --fix-dry-run './src/**/*.js'",
     "server": "nodemon --exec babel-node server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -37,6 +40,15 @@
     ]
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0"
+    "@types/react": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
+    "babel-cli": "^6.26.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-redux": "^0.1.0",
+    "prettier": "^1.18.2"
   }
 }
