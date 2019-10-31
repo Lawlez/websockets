@@ -8,7 +8,7 @@ import gameTime, {
 	handleAttacks,
 	attackTypes,
 	userRegisterHandler,
-	applyMoves
+	applyMoves,
 } from './srvHelpers'
 import {newChatHandler} from './chatHandler'
 import sudokuHandler, {getBoard, endGame, currentBoard} from './sudokuHandler'
@@ -36,13 +36,13 @@ export class WebSocket {
 	addClient(connection, userID) {
 		this.clients.push({
 			userid: userID,
-			connection: connection
+			connection: connection,
 		})
 		console.log(`connected: ${userID}from  ${connection.remoteAddress}`)
 	}
 	removeClient(id) {
 		let clients = {
-			...this.clients
+			...this.clients,
 		}
 		let clientIndex = clients.findIndex((client) => client.userid === id)
 		delete clients[clientIndex]
@@ -79,13 +79,12 @@ export class WebSocket {
 					this.clients,
 					userID,
 					this.playersReady,
-					json
+					json,
 				)
 				json.data = output && output.json ? output.json : '' ///solve this if empty
 				this.sendMessage(json)
 				break
 			case reqTypes.CONTENT_CHANGE:
-				
 				break
 			case reqTypes.RESET:
 				this.resetBoard(request.username)
@@ -127,18 +126,18 @@ export class WebSocket {
 		let json = {
 			type: 'info',
 			players: this.playersReady,
-			board: this.initialBoard
+			board: this.initialBoard,
 		}
 		this.sendMessage(json)
 	}
-	
+
 	resetBoard(username) {
 		let currUser = this.getClientByType('username', username)
 		this.setClients(currUser.userid, 'moves', {})
 		currUser = this.getClientByType('username', username)
 		this.sendMessage({
 			type: 'gamemove',
-			data: {player: currUser.player, gameField: currUser.moves}
+			data: {player: currUser.player, gameField: currUser.moves},
 		})
 	}
 }

@@ -6,7 +6,7 @@ const Document = (props) => {
 		<div className="documentWrapper">
 		
 			<textarea value={props.docContent}
-					onChange={(e) => props.handleUserInput(e.target.value)}
+				onChange={(e) => props.handleUserInput(e.target.value)}
 					className="document" />
 		</div>
 	)
